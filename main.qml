@@ -159,68 +159,79 @@ ApplicationWindow {
 //    }
     //----------------------------------------------------------------------------------------------
     //-------------- version 3 ----------------------------------------------------------------
-//    Rectangle {
-//        id: switchContainer
-//        width: 100
-//        height: 50
-//        color: switchHandle.x > switchContainer.width / 5 ? "#55aa55" : "#aa5555"
-//        radius: 25
+    /*
+    Switcher {
+        id: version3
+        widthSwitcher: 100
+        heightSwitcher: 50
+        radiusSwitcher: 25
+        isStartPositionLeft: true
+        //onHandlerIsRight: getFs.m_text = "117187"
+        //onHandlerIsLeft: getFs.m_text = "65536"
+    }
+    */
+        Rectangle {
+        id: switchContainer
+        width: 100
+        height: 50
+        color: switchHandle.x > switchContainer.width / 5 ? "#55aa55" : "#aa5555"
+        radius: 25
 
-//        MouseArea {
-//            id: dragArea
-//            anchors.fill: parent
+        MouseArea {
+            id: dragArea
+            anchors.fill: parent
 
-//            property int lastX // Добавляем свойство для отслеживания последнего положения по оси X
+            property int lastX // Добавляем свойство для отслеживания последнего положения по оси X
 
-//            onPressed: {
-//                lastX = switchHandle.x // Запоминаем начальное положение при нажатии
-//            }
+            onPressed: {
+                lastX = switchHandle.x // Запоминаем начальное положение при нажатии
+            }
 
-//            onReleased: {
-//                let moveDistance = Math.abs(switchHandle.x - lastX);
-//                let threshold = switchContainer.width * 0.15; // 15 процентов от ширины контейнера
+            onReleased: {
+                let moveDistance = Math.abs(switchHandle.x - lastX);
+                let threshold = switchContainer.width * 0.15; // 15 процентов от ширины контейнера
 
-//                if (moveDistance < threshold) {
-//                    switchHandle.x = lastX; // Возвращаем в последнее положение
-//                } else {
-//                    // Перемещаем в противоположное крайнее положение
-//                    switchHandle.x = (lastX === switchContainer.width - switchHandle.width)
-//                            ? 0 // Если был в крайнем правом, перемещаем в крайнее левое
-//                            : switchContainer.width - switchHandle.width; // Иначе, перемещаем в крайнее правое
-//                }
-//            }
-//            drag.target: switchHandle
-//            drag.axis: Drag.XAxis
-//            drag.minimumX: 0
-//            drag.maximumX: switchContainer.width - switchHandle.width
-//        }
+                if (moveDistance < threshold) {
+                    switchHandle.x = lastX; // Возвращаем в последнее положение
+                } else {
+                    // Перемещаем в противоположное крайнее положение
+                    switchHandle.x = (lastX === switchContainer.width - switchHandle.width)
+                            ? 0 // Если был в крайнем правом, перемещаем в крайнее левое
+                            : switchContainer.width - switchHandle.width; // Иначе, перемещаем в крайнее правое
+                }
+            }
+            drag.target: switchHandle
+            drag.axis: Drag.XAxis
+            drag.minimumX: 0
+            drag.maximumX: switchContainer.width - switchHandle.width
+        }
 
-//        Rectangle {
-//            id: switchHandle
-//            width: 70 // Измененная ширина для продолговатой формы
-//            height: switchContainer.height - 10 // Высота меньше, чтобы вписаться в контейнер
-//            radius: 10 // Меньшее скругление углов
-//            color: "white"
-//            anchors.verticalCenter: parent.verticalCenter
-//            x: 0 // Начальное положение слева
-//            //x:switchContainer.width - switchContainer.height // начальное положение справа
+        Rectangle {
+            id: switchHandle
+            width: 70 // Измененная ширина для продолговатой формы
+            height: switchContainer.height - 10 // Высота меньше, чтобы вписаться в контейнер
+            radius: 10 // Меньшее скругление углов
+            color: "white"
+            anchors.verticalCenter: parent.verticalCenter
+            x: 0 // Начальное положение слева
+            //x:switchContainer.width - switchContainer.height // начальное положение справа
 
-//            property real startX: 0 // Сохраняем начальное положение
+            property real startX: 0 // Сохраняем начальное положение
 
-//            Behavior on x {
-//                NumberAnimation {
-//                    duration: 300 // продолжительность анимации в миллисекундах
-//                    easing.type: Easing.InOutQuad // тип плавности анимации
-//                }
-//            }
+            Behavior on x {
+                NumberAnimation {
+                    duration: 300 // продолжительность анимации в миллисекундах
+                    easing.type: Easing.InOutQuad // тип плавности анимации
+                }
+            }
 
-//            Text {
-//                text: parent.x > switchContainer.width / 5 ? "Вкл" : "Выкл"
-//                anchors.centerIn: parent
-//                color: "black"
-//            }
-//        }
-//    }
+            Text {
+                text: parent.x > switchContainer.width / 5 ? "Вкл" : "Выкл"
+                anchors.centerIn: parent
+                color: "black"
+            }
+        }
+    }
     //----------------------------------------------------------------------------------------------
     //-------------- version 4 ----------------------------------------------------------------
 
@@ -352,7 +363,18 @@ ApplicationWindow {
 //    }
     //----------------------------------------------------------------------------------------------
     //-------------- version 6 ----------------------------------------------------------------
-    Rectangle {
+    /*
+    Switcher {
+        id: version6
+        widthSwitcher: 80
+        heightSwitcher: 30
+        radiusSwitcher: 10
+        isStartPositionLeft: true
+        //onHandlerIsRight: getFs.m_text = "117187"
+        //onHandlerIsLeft: getFs.m_text = "65536"
+    }
+    */
+/*    Rectangle {
         id: switchContainer
         width: 80
         height: 30 //50
@@ -414,7 +436,7 @@ ApplicationWindow {
                 color: "black"
             }
         }
-    }
+    }*/
     //----------------------------------------------------------------------------------------------
     //-------------- version 7 ----------------------------------------------------------------
 
